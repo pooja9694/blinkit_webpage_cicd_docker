@@ -62,7 +62,7 @@ pipeline{
                     echo "Docker continer deployed successfully"
                 }
                 failure {
-                    echo "Docker container is alreay Running"
+                    echo "Docker container is already Running"
                 }
             }
          }
