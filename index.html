@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blinkit Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h2 class="logo">Blinkit</h2>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="category.html">Category</a>
+    <a href="cart.html">Cart</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Fast Delivery. Fresh Groceries.</h1>
+  <p>Get your groceries delivered in under 10 minutes.</p>
+  <button onclick="shopNow()">Shop Now</button>
+</section>
+
+<section class="categories">
+  <h2>Shop by Category</h2>
+
+  <div class="category-grid">
+    <div id="a" class="card" onclick="openCategory('Fruits')"><img src="https://png.pngtree.com/png-clipart/20240318/original/pngtree-fruit-in-basket-all-fruits-in-png-png-image_14617556.png" width="150px" height="150px" alt="fruits"> Fruits</div>
+    <div id="b" class="card" onclick="openCategory('Vegetables')"><img src="https://i.pinimg.com/736x/43/9a/82/439a82a6fcebc9944b838696a21eb60a.jpg" width="150px" height="150px" alt="fruits"> Vegetables</div>
+    <div id="c" class="card" onclick="openCategory('Dairy')"><img src="https://www.shutterstock.com/shutterstock/videos/1060197110/thumb/7.jpg?ip=x480" width="150px" height="150px" alt="fruits"> Dairy</div>
+    <div id="d" class="card" onclick="openCategory('Snacks')"><img src="https://yimages360.s3.amazonaws.com/products/2021/06/60b8e71b578eb/1x.jpg" width="150px" height="150px" alt="fruits"> Snacks</div>
+  </div>
+</section>
+
+
+<script src="app.js"></script>
+</body>
+</html>

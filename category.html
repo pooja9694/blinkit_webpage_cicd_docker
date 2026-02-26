@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Categories</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h2 class="logo">Blinkit</h2>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="cart.html">Cart</a>
+  </nav>
+</header>
+
+<section class="products">
+  <h2 id="categoryTitle">Products</h2>
+
+  <div class="product-grid">
+
+    <div class="product">
+      <h3>Apple</h3>
+      <p>₹120/kg</p>
+      <button onclick="viewProduct('Apple',120)">View</button>
+    </div>
+
+    <div class="product">
+      <h3>Milk</h3>
+      <p>₹50</p>
+      <button onclick="viewProduct('Milk',50)">View</button>
+    </div>
+
+    <div class="product">
+      <h3>Chips</h3>
+      <p>₹30</p>
+      <button onclick="viewProduct('Chips',30)">View</button>
+    </div>
+
+  </div>
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>
