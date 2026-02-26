@@ -6,6 +6,9 @@ pipeline{
         DOCKER_IMAGE = 'webapp'
         DOCKERHUB_REPO= 'blinkit-brocode'
         VERSION = '$BUILD_ID'
+         CONTAINER_NAME = 'app'
+        CONTAINER_PORT = '8003'
+        REQUEST_PORT = '80'
 
     }
     stages{
@@ -31,6 +34,26 @@ pipeline{
             steps{
                  sh "sudo docker images"
                 // sh "sudo docker run -d -p 80:80 --name ${DOCKER_IMAGE} ${DOCKERHUB_USERNAME}/${DOCKER_IMAGE}"
+            }
+        }
+        stage("Run Container"){
+            steps{
+                sh "sudo docker run -it -d --name ${CONTAINER_NAME} -p ${CONTAINER_PORT}:${REQUEST_PORT} ${DOCKERHUB_USERNAME}/${DOCKERHUB_REPO}:latest"
+            }
+            post {
+                always {
+                    echo "Docker container from Server"
+                }
+                success {
+                    echo "Docker continer deployed successfully"
+                }
+                failure {
+                    echo "Docker container is alreay Running"
+                }
+            }
+            stage("Remove docker image locally") {
+                steps {
+                     sh "sudo docker rmi -f ${DOCKERHUB_USERNAME}/${DOCKERHUB_REPO}:${VERSION}"
             }
         }
     }
