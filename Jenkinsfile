@@ -51,11 +51,11 @@ pipeline{
                     echo "Docker container is alreay Running"
                 }
             }
-            stage("Remove docker image locally") {
-                steps {
-                     sh "sudo docker rmi -f ${DOCKERHUB_USERNAME}/${DOCKERHUB_REPO}:${VERSION}"
-                }
-             }
          }
+    stage("Remove docker image locally") {
+          steps {
+                sh "sudo docker rmi -f ${DOCKERHUB_USERNAME}/${DOCKERHUB_REPO}:${VERSION}"
+             }
+        }
     }
 }
