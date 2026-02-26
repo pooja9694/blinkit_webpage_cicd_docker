@@ -36,6 +36,20 @@ pipeline{
                 // sh "sudo docker run -d -p 80:80 --name ${DOCKER_IMAGE} ${DOCKERHUB_USERNAME}/${DOCKER_IMAGE}"
             }
         }
+        stage("Remove Older Container") {
+            steps {
+                sh "sudo docker rm -f ${CONTAINER_NAME}"
+            }
+            post {
+                success {
+                    echo "Container is removed"
+                }
+                failure {
+                    echo "Container is not Present...."
+                    sh "sudo docker run -it -d --name ${CONTAINER_NAME} -p ${CONTAINER_PORT}:${REQUEST_PORT} ${DOCKERHUB_USERNAME}/${DOCKERHUB_REPO}:latest"
+                }
+            }
+        }
         stage("Run Container"){
             steps{
                 sh "sudo docker run -it -d --name ${CONTAINER_NAME} -p ${CONTAINER_PORT}:${REQUEST_PORT} ${DOCKERHUB_USERNAME}/${DOCKERHUB_REPO}:latest"
